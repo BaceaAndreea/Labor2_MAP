@@ -14,13 +14,17 @@ public class UserInterface {
     public OperationController operationController;
     public SpezialisierungController spezialisierungController;
     public KrankheitController krankheitController;
-    public UserInterface(ArztController arztController, PatientController patientController, MedikamenteController medikamentController, OperationController operationController, SpezialisierungController spezialisierungController, KrankheitController krankheitController) {
+    public BeratungController beratungController;
+    public Kabinettcontroller kabinettcontroller;
+    public UserInterface(ArztController arztController, PatientController patientController, MedikamenteController medikamentController, OperationController operationController, SpezialisierungController spezialisierungController, KrankheitController krankheitController, Kabinettcontroller kabinettcontroller, BeratungController beratungController) {
         this.arztController = arztController;
         this.patientController = patientController;
         this.medikamentController = medikamentController;
         this.operationController = operationController;
         this.spezialisierungController = spezialisierungController;
         this.krankheitController = krankheitController;
+        this.kabinettcontroller = kabinettcontroller;
+        this.beratungController = beratungController;
     }
 
     public static void Menu() {
@@ -89,6 +93,12 @@ public class UserInterface {
                                 case 6:
                                     addIllness();
                                     break;
+                                case 7:
+                                    addOffice();
+                                    break;
+                                case 8:
+                                    addConsult();
+                                    break;
                                 default:
                                     System.out.println("Invalid choice.\n");
                                     break;
@@ -116,6 +126,12 @@ public class UserInterface {
                                     break;
                                 case 6:
                                     updateIllness();
+                                    break;
+                                case 7:
+                                    updateOffice();
+                                    break;
+                                case 8:
+                                    updateConsult();
                                     break;
                                 default:
                                     System.out.println("Invalid choice.\n");
@@ -145,6 +161,12 @@ public class UserInterface {
                                 case 6:
                                     deleteIllness();
                                     break;
+                                case 7:
+                                    deleteOffice();
+                                    break;
+                                case 8:
+                                    deleteConsult();
+                                    break;
                                 default:
                                     System.out.println("Invalid choice.\n");
                                     break;
@@ -172,6 +194,12 @@ public class UserInterface {
                                     break;
                                 case 6:
                                     showIllness();
+                                    break;
+                                case 7:
+                                    showOffice();
+                                    break;
+                                case 8:
+                                    showConsult();
                                     break;
                                 default:
                                     System.out.println("Invalid choice.\n");
@@ -206,16 +234,16 @@ public class UserInterface {
         System.out.print("ID Doctor: ");
         int arztID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Doctor: ");
+        System.out.print("Last Name Doctor: ");
         String name = scanner.nextLine();
-        System.out.print("Vorname Doctor: ");
+        System.out.print("First Name Doctor: ");
         String vorname = scanner.nextLine();
-        System.out.print("Geburstdatum Doctor: ");
+        System.out.print("Birthday Doctor: ");
         String geburstdatum = scanner.nextLine();
-        System.out.print("KrankenhausID Doctor: ");
+        System.out.print("HospitalID Doctor: ");
         int KrankenhausID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Kontakttelefon Doctor: ");
+        System.out.print("Phone Number Doctor: ");
         String kontakttelefon = scanner.nextLine();
         System.out.print("SpecialityID Doctor: ");
         int spezialisierungID = scanner.nextInt();
@@ -232,16 +260,16 @@ public class UserInterface {
         System.out.print("ID of the Doctor you want to change: ");
         int arztID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Doctor: ");
+        System.out.print("Last Name Doctor: ");
         String name = scanner.nextLine();
-        System.out.print("Vorname Doctor: ");
+        System.out.print("First Name Doctor: ");
         String vorname = scanner.nextLine();
-        System.out.print("Geburstdatum Doctor: ");
+        System.out.print("Birthday Doctor: ");
         String geburstdatum = scanner.nextLine();
-        System.out.print("KrankenhausID Doctor: ");
+        System.out.print("HospitalID Doctor: ");
         int KrankenhausID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Kontakttelefon Doctor: ");
+        System.out.print("Phone Number Doctor: ");
         String kontakttelefon = scanner.nextLine();
         System.out.print("SpecialityID Doctor: ");
         int spezialisierungID = scanner.nextInt();
@@ -254,11 +282,11 @@ public class UserInterface {
 
     public void deleteDoctor(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID von den Doctor den du loschen willst: ");
+        System.out.print("ID of the doctor you want to delete: ");
         int arztID = scanner.nextInt();
         scanner.nextLine();
         arztController.deleteArzt(arztID);
-        System.out.println("Gut geloscht.");
+        System.out.println("Deleted.");
     }
 
     public void addPatient(){
@@ -301,11 +329,11 @@ public class UserInterface {
 
     public void deletePatient(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID von Patient: ");
+        System.out.print("ID of the patient you want to delete: ");
         int patientID = scanner.nextInt();
         scanner.nextLine();
         patientController.deletePateint(patientID);
-        System.out.println("Gut geloscht.");
+        System.out.println("Deleted.");
     }
 
     public void showDoctor(){
@@ -328,21 +356,21 @@ public class UserInterface {
         String name = scanner.nextLine();
         System.out.print("Verabreichungsweg Medikament: ");
         String verabreichungsweg = scanner.nextLine();
-        System.out.print("Menge Lagen Medikament ");
+        System.out.print("Quantity Drug ");
         int mengeLagen = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Verfallsdatum Medikament: ");
+        System.out.print("Expiring Date Drug: ");
         String verfallsdatum = scanner.nextLine();
         medikamentController.addMedikament(medikamentID, name, verabreichungsweg, mengeLagen, verfallsdatum);
     }
 
     public void deleteDrug(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID Medikament ");
+        System.out.print("ID of the drug you want to delete ");
         int medikamentID = scanner.nextInt();
         scanner.nextLine();
         medikamentController.deleteMedikament(medikamentID);
-        System.out.println("Gut geloscht.");
+        System.out.println("Deleted.");
     }
 
     public void updateDrug(){
@@ -350,14 +378,14 @@ public class UserInterface {
         System.out.print("ID of the drug you want to change: ");
         int medikamentID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Medikament: ");
+        System.out.print("Name Drug: ");
         String name = scanner.nextLine();
         System.out.print("Verabreichungsweg Medikament: ");
         String verabreichungsweg = scanner.nextLine();
-        System.out.print("Menge Lagen Medikament ");
+        System.out.print("Quantity Drug: ");
         int mengeLagen = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Verfallsdatum Medikament: ");
+        System.out.print("Expiring Date Drug: ");
         String verfallsdatum = scanner.nextLine();
         medikamentController.updateMedikament(medikamentID, name, verabreichungsweg, mengeLagen, verfallsdatum);
     }
@@ -379,12 +407,12 @@ public class UserInterface {
         scanner.nextLine();
         System.out.print("Datum Operation: ");
         String datum = scanner.nextLine();
-        System.out.print("KrankenheitID Operation: ");
+        System.out.print("IllnessID Operation: ");
         int krankenheitID = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Name Operation: ");
         String name = scanner.nextLine();
-        System.out.print("DrugID Doctor: ");
+        System.out.print("DrugID Operation: ");
         int medikamentID = scanner.nextInt();
         scanner.nextLine();
         operationController.addOperation(patientID, arztID, datum, krankenheitID, name, medikamentID);
@@ -392,20 +420,20 @@ public class UserInterface {
 
     public void updateOperation(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("PatientID of the operation you want to change: ");
+        System.out.print("PatientID of the operation you want to update: ");
         int patientID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("DoctorID of the operation you want to change: ");
+        System.out.print("DoctorID of the operation you want to update: ");
         int arztID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Datum of the operation you want to change: ");
+        System.out.print("Date of the operation you want to update: ");
         String datum = scanner.nextLine();
-        System.out.print("KrankenheitID Operation: ");
+        System.out.print("IllnessID Operation: ");
         int krankenheitID = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Name Operation: ");
         String name = scanner.nextLine();
-        System.out.print("DrugID Doctor: ");
+        System.out.print("DrugID Operation: ");
         int medikamentID = scanner.nextInt();
         scanner.nextLine();
         operationController.updateOperation(patientID, arztID, datum, krankenheitID, name, medikamentID);
@@ -419,9 +447,10 @@ public class UserInterface {
         System.out.print("DoctorID of the operation you want to delete: ");
         int arztID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Datum of the operation you want to delete: ");
+        System.out.print("Date of the operation you want to delete: ");
         String datum = scanner.nextLine();
         operationController.deleteOperation(patientID, arztID, datum);
+        System.out.println("Deleted.");
     }
 
     public void showOperation(){
@@ -431,10 +460,10 @@ public class UserInterface {
     }
     public void addSpeciality() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID Spezialisierung ");
+        System.out.print("SpecialityID: ");
         int spezialisierungID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Spezialisierung: ");
+        System.out.print("Name Speciality: ");
         String name = scanner.nextLine();
         spezialisierungController.addSpezialisierung(spezialisierungID, name);
     }
@@ -455,7 +484,7 @@ public class UserInterface {
         int spezialisierungID = scanner.nextInt();
         scanner.nextLine();
         spezialisierungController.deleteSpezialisierung(spezialisierungID);
-        System.out.println("Gut geloscht.");
+        System.out.println("Deleted.");
     }
 
     public void showSpeciality(){
@@ -483,16 +512,109 @@ public class UserInterface {
         System.out.print("ID Krankheit you want to change");
         int krankheitID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Krankheit: ");
+        System.out.print("Name Illness: ");
         String name = scanner.nextLine();
         krankheitController.updateKrankheit(krankheitID, name);
     }
     public void deleteIllness(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID Krankheit you want to delete ");
+        System.out.print("IllnessID of the Illness you want to delete: ");
         int krankheitID = scanner.nextInt();
         scanner.nextLine();
         krankheitController.deleteKrankheit(krankheitID);
-        System.out.println("Gut geloscht.");
+        System.out.println("Deleted.");
+    }
+    public void addConsult(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("PatientID Consult: ");
+        int patientID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("DoctorID Consult: ");
+        int arztID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Date Consult: ");
+        String datum = scanner.nextLine();
+        System.out.print("IllnessID Consult: ");
+        int krankenheitID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Karte Consult: ");
+        boolean karte = Boolean.parseBoolean(scanner.nextLine());
+        System.out.print("Preis Consult: ");
+        int preis = scanner.nextInt();
+        scanner.nextLine();
+        beratungController.addBeratung(patientID, arztID, datum, krankenheitID, karte, preis);
+    }
+
+    public void updateConsult(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("PatientID of the Consult you want to update: ");
+        int patientID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("DoctorID of the Consult you want to update: ");
+        int arztID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Date of the  Consult you want to update: ");
+        String datum = scanner.nextLine();
+        System.out.print("IllnessID Consult: ");
+        int krankenheitID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Karte Consult: ");
+        boolean karte = Boolean.parseBoolean(scanner.nextLine());
+        System.out.print("Preis Consult: ");
+        int preis = scanner.nextInt();
+        scanner.nextLine();
+        beratungController.updateBeratung(patientID, arztID, datum, krankenheitID, karte, preis);
+    }
+
+    public void deleteConsult(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("PatientID of the consult you want to delete: ");
+        int patientID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("DoctorID of the consult you want to delete: ");
+        int arztID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Date of the consult you want to delete: ");
+        String datum = scanner.nextLine();
+        beratungController.deleteBeratung(patientID, arztID, datum);
+        System.out.println("Deleted.");
+    }
+
+    public void showConsult(){
+        for(Beratung beratung: beratungController.readAll()){
+            System.out.println(beratung.toString());
+        }
+    }
+
+    public void addOffice() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("OfficeID: ");
+        int officeID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Name Office: ");
+        String name = scanner.nextLine();
+        kabinettcontroller.addKabinette(officeID, name);
+    }
+    public void showOffice(){
+        for(Kabinett kabinett : kabinettcontroller.readAll()){
+            System.out.println(kabinett.toString());
+        }
+    }
+    public void updateOffice(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("OfficeID of the Office you want to update: ");
+        int officeID = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Name Office: ");
+        String name = scanner.nextLine();
+        kabinettcontroller.updateKabinette(officeID, name);
+    }
+    public void deleteOffice(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("OfficeID of the Office you want to delete ");
+        int officeID = scanner.nextInt();
+        scanner.nextLine();
+        kabinettcontroller.deleteKabinett(officeID);
+        System.out.println("Deleted.");
     }
 }

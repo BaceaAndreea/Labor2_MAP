@@ -11,6 +11,8 @@ public class Main {
         MedikamentRepo mr = new MedikamentRepo();
         SpezialisierungRepo sr = new SpezialisierungRepo();
         KrankheitRepo kr = new KrankheitRepo();
+        KabinettRepo kr2 = new KabinettRepo();
+        BeratungRepo br = new BeratungRepo();
 
         ArztController ac = new ArztController(ar);
         PatientController pc = new PatientController(pr);
@@ -18,8 +20,10 @@ public class Main {
         MedikamenteController mc = new MedikamenteController(mr);
         SpezialisierungController sc = new SpezialisierungController(sr);
         KrankheitController kc = new KrankheitController(kr);
+        Kabinettcontroller kc2 = new Kabinettcontroller(kr2);
+        BeratungController bc = new BeratungController(br);
 
-        UserInterface ui = new UserInterface(ac, pc, mc,oc, sc, kc);
+        UserInterface ui = new UserInterface(ac, pc, mc,oc, sc, kc, kc2, bc);
         ui.start();
     }
 

@@ -4,8 +4,8 @@ import Domain.Beratung;
 
 import java.util.ArrayList;
 
-class BeratungRepo implements RepositoryInterface<Beratung> {
-    private ArrayList<Beratung> beratungen = new ArrayList<>();
+public class BeratungRepo implements RepositoryInterface<Beratung> {
+    private final ArrayList<Beratung> beratungen = new ArrayList<Beratung>();
 
     @Override
     public void add(Beratung newBeratung) {
