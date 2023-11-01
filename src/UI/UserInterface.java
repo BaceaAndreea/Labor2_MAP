@@ -76,6 +76,31 @@ public class UserInterface {
                             break;
                         case 3:
                             Menu();
+                            int choice6 = scanner.nextInt();
+                            scanner.nextLine();
+                            switch (choice6) {
+                                case 1:
+                                    deleteDoctor();
+                                    break;
+                                case 2:
+                                    deletePatient();
+                                    break;
+                                case 3:
+                                    deleteDrug();
+                                    break;
+                                case 4:
+                                    deleteOperation();
+                                    break;
+                                case 5:
+                                    deleteSpeciality();
+                                    break;
+                                case 6:
+                                    deleteIllness();
+                                    break;
+                                default:
+                                    System.out.println("Invalid choice.\n");
+                                    break;
+                            }
                             break;
                         case 4:
                             Menu();

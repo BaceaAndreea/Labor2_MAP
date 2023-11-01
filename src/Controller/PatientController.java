@@ -2,20 +2,24 @@ package Controller;
 import Repository.*;
 import Domain.*;
 
-public class PatientController {
-    private RepositoryInterface <Patient> patientRepo;
+import java.util.ArrayList;
 
-    public PatientController(RepositoryInterface<Patient> patientRepo){
+public class PatientController {
+    private final PatientRepo patientRepo;
+
+    public PatientController(PatientRepo patientRepo){
         this.patientRepo = patientRepo;
     }
 
     public void addPatient(int patientID, String name, String vorname, String geburtsdatum, String kontakttelefon, int karteID){
-        if(patientID < 0){
-            throw new IllegalArgumentException("PatientID is positive.");
-        }
-        for(Patient patient : patientRepo.readAll()){
-            if(patient.getPatientID() == patientID){
-                throw new IllegalArgumentException("PatientID is unique.");
+        if(patientRepo != null) {
+            if (patientID < 0) {
+                throw new IllegalArgumentException("PatientID is positive.");
+            }
+            for (Patient patient : patientRepo.readAll()) {
+                if (patient.getPatientID() == patientID) {
+                    throw new IllegalArgumentException("PatientID is unique.");
+                }
             }
         }
         Patient newPatient = new Patient(patientID, name, vorname, geburtsdatum, kontakttelefon, karteID);
@@ -38,6 +42,7 @@ public class PatientController {
             for(Patient patient : patientRepo.readAll()){
                 if(patient.getPatientID() == patientID){
                     patientRepo.delete(patient);
+                    break;
                 }
             }
         }
@@ -55,5 +60,9 @@ public class PatientController {
                 }
             }
         }
+    }
+
+    public ArrayList<Patient> readAll(){
+        return patientRepo.readAll();
     }
 }
