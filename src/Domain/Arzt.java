@@ -8,6 +8,7 @@ public class Arzt {
     private String kontakttelefon;
     private int spezialisierungID;
     private int kabinettID;
+
     public Arzt(int arztID, String name, String vorname, String geburstdatum, int krankenhausID, String kontakttelefon, int spezialisierungID, int kabinettID) {
         this.arztID = arztID;
         this.name = name;

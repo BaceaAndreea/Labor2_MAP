@@ -11,36 +11,12 @@ public interface RepositoryInterface<ObjectType>{
 
 }
 
-class ArztRepo implements RepositoryInterface<Arzt>{
-    private ArrayList<Arzt> arzte = new ArrayList<>();
-
-    @Override
-    public void add(Arzt newArzt){
-        arzte.add(newArzt);
-    }
-
-    @Override
-    public void delete(Arzt deletedArzt) {
-        arzte.remove(deletedArzt);
-    }
-
-    @Override
-    public void update(Arzt oldObject, Arzt newObject) {
-        int index = arzte.indexOf(oldObject);
-        if (index != -1) {
-            arzte.set(index, newObject);
-        }
-    }
-
-    @Override
-    public ArrayList<Arzt> readAll(){
-        return arzte;
-    }
-
-}
-
 class PatientRepo implements RepositoryInterface<Patient> {
     private ArrayList<Patient> patienten = new ArrayList<>();
+
+    public PatientRepo(){
+        patienten =new ArrayList<>();
+    }
 
     @Override
     public void add(Patient newPatient) {
