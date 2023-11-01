@@ -5,16 +5,14 @@ public class Patient {
     private String name;
     private String vorname;
     private String geburtsdatum;
-    private int krankenhausID;
     private String kontakttelefon;
     private int karteID;
 
-    public Patient(int patientID, String name, String vorname, String geburtsdatum, int krankenhausID, String kontakttelefon) {
+    public Patient(int patientID, String name, String vorname, String geburtsdatum, String kontakttelefon, int karteID) {
         this.patientID = patientID;
         this.name = name;
         this.vorname = vorname;
-        this.geburtsdatum = geburtsdatum;
-        this.krankenhausID = krankenhausID;
+        this.geburtsdatum = geburtsdatum;;
         this.kontakttelefon = kontakttelefon;
         this.karteID = karteID;
     }
@@ -57,14 +55,6 @@ public class Patient {
 
     public void setGeburtsdatum(String geburtsdatum) {
         this.geburtsdatum = geburtsdatum;
-    }
-
-    public int getKrankenhausID() {
-        return krankenhausID;
-    }
-
-    public void setKrankenhausID(int krankenhausID) {
-        this.krankenhausID = krankenhausID;
     }
 
     public String getKontakttelefon() {
