@@ -62,8 +62,9 @@ public class UserInterface {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("First we need to get to know you.");
-                    String name1 = scanner.nextLine();
+                    System.out.println("First we want to get to know you: ");
+                    addPatient();
+                    showPatient();
                     break;
                 case 2:
                     Menu3();
@@ -291,18 +292,18 @@ public class UserInterface {
 
     public void addPatient(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID von Patient ");
+        System.out.print("ID Patient: ");
         int patientID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Patient: ");
+        System.out.print("Last Name Patient: ");
         String name = scanner.nextLine();
-        System.out.print("Vorname Patient: ");
+        System.out.print("First Name Patient: ");
         String vorname = scanner.nextLine();
-        System.out.print("Geburstdatum Patient: ");
+        System.out.print("Birthday Patient: ");
         String geburstdatum = scanner.nextLine();
-        System.out.print("Kontakttelefon Patient: ");
+        System.out.print("Phone Number Patient: ");
         String kontakttelefon = scanner.nextLine();
-        System.out.print("GesundheitskarteID Patient: ");
+        System.out.print("HealthcardID Patient: ");
         int gesundheitskarteID = scanner.nextInt();
         scanner.nextLine();
         patientController.addPatient(patientID,name, vorname, geburstdatum, kontakttelefon, gesundheitskarteID);
@@ -313,15 +314,15 @@ public class UserInterface {
         System.out.print("ID of the patient you want to change: ");
         int patientID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Patient: ");
+        System.out.print("Last Name Patient: ");
         String name = scanner.nextLine();
-        System.out.print("Vorname Patient: ");
+        System.out.print("First Name Patient: ");
         String vorname = scanner.nextLine();
-        System.out.print("Geburstdatum Patient: ");
+        System.out.print("Birthday Patient: ");
         String geburstdatum = scanner.nextLine();
-        System.out.print("Kontakttelefon Patient: ");
+        System.out.print("Phone Number Patient: ");
         String kontakttelefon = scanner.nextLine();
-        System.out.print("GesundheitskarteID Patient: ");
+        System.out.print("HealthcardID Patient: ");
         int gesundheitskarteID = scanner.nextInt();
         scanner.nextLine();
         patientController.updatePateint(patientID,name, vorname, geburstdatum, kontakttelefon, gesundheitskarteID);
@@ -349,12 +350,12 @@ public class UserInterface {
 
     public void addDrug(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID Medikament ");
+        System.out.print("ID Drug ");
         int medikamentID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Medikament: ");
+        System.out.print("Name Drug: ");
         String name = scanner.nextLine();
-        System.out.print("Verabreichungsweg Medikament: ");
+        System.out.print("Way of administration of the Drug: ");
         String verabreichungsweg = scanner.nextLine();
         System.out.print("Quantity Drug ");
         int mengeLagen = scanner.nextInt();
@@ -380,7 +381,7 @@ public class UserInterface {
         scanner.nextLine();
         System.out.print("Name Drug: ");
         String name = scanner.nextLine();
-        System.out.print("Verabreichungsweg Medikament: ");
+        System.out.print("Way of administration of the Drug: ");
         String verabreichungsweg = scanner.nextLine();
         System.out.print("Quantity Drug: ");
         int mengeLagen = scanner.nextInt();
@@ -405,7 +406,7 @@ public class UserInterface {
         System.out.print("DoctorID Operation: ");
         int arztID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Datum Operation: ");
+        System.out.print("Date Operation: ");
         String datum = scanner.nextLine();
         System.out.print("IllnessID Operation: ");
         int krankenheitID = scanner.nextInt();
@@ -470,17 +471,17 @@ public class UserInterface {
 
     public void updateSpeciality(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID Spezialisierung ");
+        System.out.print("SpecialityID of the speciality you want to update: ");
         int spezialisierungID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Spezialisierung: ");
+        System.out.print("Name Speciality: ");
         String name = scanner.nextLine();
         spezialisierungController.updateSpezialiserung(spezialisierungID, name);
     }
 
     public void deleteSpeciality(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID Spezialisierung ");
+        System.out.print("SpecialityID of the speciality you want to delete: ");
         int spezialisierungID = scanner.nextInt();
         scanner.nextLine();
         spezialisierungController.deleteSpezialisierung(spezialisierungID);
@@ -495,10 +496,10 @@ public class UserInterface {
 
     public void addIllness() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID Krankheit ");
+        System.out.print("IllnessID: ");
         int krankheitID = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Name Krankheit: ");
+        System.out.print("Name Illness: ");
         String name = scanner.nextLine();
         krankheitController.addKrankheit(krankheitID, name);
     }
@@ -509,7 +510,7 @@ public class UserInterface {
     }
     public void updateIllness(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("ID Krankheit you want to change");
+        System.out.print("IllnessID of the Illness you want to update: ");
         int krankheitID = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Name Illness: ");

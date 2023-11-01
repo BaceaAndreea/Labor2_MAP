@@ -4,8 +4,8 @@ import Domain.Kabinett;
 
 import java.util.ArrayList;
 
-class KabinettRepo implements RepositoryInterface<Kabinett> {
-    private ArrayList<Kabinett> kabinette = new ArrayList<>();
+public class KabinettRepo implements RepositoryInterface<Kabinett> {
+    private ArrayList<Kabinett> kabinette = new ArrayList<Kabinett>();
 
     @Override
     public void add(Kabinett newKabinett) {
