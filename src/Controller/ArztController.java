@@ -11,7 +11,6 @@ public class ArztController {
         this.arztRepo = arztRepo;
     }
 
-
     public void addArzt(int arztID, String name, String vorname, String geburstdatum, int krankenhausID, String kontakttelefon, int spezialisierungID, int kabinettID){
         if(arztRepo != null) {
             if (arztID < 0) {
@@ -42,6 +41,7 @@ public class ArztController {
             for (Arzt arzt : arztRepo.readAll()) {
                 if (arzt.getArztID() == arztID) {
                     arztRepo.delete(arzt);
+                    break;
                 }
 
             }
