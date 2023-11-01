@@ -1,20 +1,20 @@
 package Domain;
 
 public class Kabinett  {
-    private int kabinettid;
+    private int kabinettID;
     private String name;
 
-    public Kabinett(int kabinettid, String name) {
-        this.kabinettid = kabinettid;
+    public Kabinett(int kabinettID, String name) {
+        this.kabinettID = kabinettID;
         this.name = name;
     }
 
-    public int getKabinettid() {
-        return kabinettid;
+    public int getKabinettID() {
+        return kabinettID;
     }
 
-    public void setKabinettid(int kabinettid) {
-        this.kabinettid = kabinettid;
+    public void setKabinettID(int kabinettID) {
+        this.kabinettID = kabinettID;
     }
 
     public String getName() {
@@ -28,7 +28,7 @@ public class Kabinett  {
     @Override
     public String toString() {
         return "Kabinett{" +
-                "kabinettid=" + kabinettid +
+                "kabinettID=" + kabinettID +
                 ", name='" + name + '\'' +
                 '}';
     }

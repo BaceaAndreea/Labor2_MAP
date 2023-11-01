@@ -7,6 +7,7 @@ public class Patient {
     private String geburtsdatum;
     private int krankenhausID;
     private String kontakttelefon;
+    private int karteID;
 
     public Patient(int patientID, String name, String vorname, String geburtsdatum, int krankenhausID, String kontakttelefon) {
         this.patientID = patientID;
@@ -15,6 +16,15 @@ public class Patient {
         this.geburtsdatum = geburtsdatum;
         this.krankenhausID = krankenhausID;
         this.kontakttelefon = kontakttelefon;
+        this.karteID = karteID;
+    }
+
+    public int getKarteID() {
+        return karteID;
+    }
+
+    public void setKarteID(int karteID) {
+        this.karteID = karteID;
     }
 
     public int getPatientID() {
@@ -72,12 +82,10 @@ public class Patient {
                 ", name='" + name + '\'' +
                 ", vorname='" + vorname + '\'' +
                 ", geburtsdatum='" + geburtsdatum + '\'' +
-                ", krankenhausID=" + krankenhausID +
                 ", kontakttelefon='" + kontakttelefon + '\'' +
+                ", karteID=" + karteID +
                 '}';
     }
-
-
 }
 
 
