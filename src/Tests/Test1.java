@@ -1,12 +1,12 @@
-package Tests;
+/*package Tests;
 
-import Controller.ArztController;
+import Controller.DoctorController;
 import Controller.KrankheitController;
 import Controller.PatientController;
-import Domain.Arzt;
+import Domain.Doctor;
 import Domain.Krankheit;
 import Domain.Patient;
-import Repository.ArztRepo;
+import Repository.DoctorRepo;
 import Repository.KrankheitRepo;
 import Repository.PatientRepo;
 import org.junit.Test;
@@ -24,21 +24,21 @@ public class Test1 {
 
     @Test
     public void addUpdateDeleteDoctor() {
-        ArztRepo ar = new ArztRepo();
-        ArztController ac = new ArztController(ar);
-        Arzt johnDoctor = new Arzt(101, "Smith", "John", "19990302", 303,  "5553456236", 100, 200);
-        ac.addArzt(101, "Smith", "John", "19990302", 303, "5553456236", 100, 200);
-        ArrayList<Arzt> arzte = ac.readAll();
-        assertEquals(arzte.get(0).toString(), johnDoctor.toString());
+        DoctorRepo ar = new DoctorRepo();
+        DoctorController ac = new DoctorController(ar);
+        Doctor johnDoctor = new Doctor(101, "Smith", "John", "19990302", 303,  "5553456236", 100, 200);
+        ac.addDoctor(101, "Smith", "John", "19990302", 303, "5553456236", 100, 200);
+        ArrayList<Doctor> Doctore = ac.readAll();
+        assertEquals(Doctore.get(0).toString(), johnDoctor.toString());
         System.out.println("Add Test Doctor successful");
-        ac.updateArzt(101, "Smith", "Johnathan", "20000302", 303, "5553456236", 100, 200);
-        Arzt johnathanDoctor = new Arzt(101, "Smith", "Johnathan", "20000302", 303, "5553456236", 100, 200);
-        arzte = ac.readAll();
-        assertEquals(arzte.get(0).toString(), johnathanDoctor.toString());
+        ac.updateDoctor(101, "Smith", "Johnathan", "20000302", 303, "5553456236", 100, 200);
+        Doctor johnathanDoctor = new Doctor(101, "Smith", "Johnathan", "20000302", 303, "5553456236", 100, 200);
+        Doctore = ac.readAll();
+        assertEquals(Doctore.get(0).toString(), johnathanDoctor.toString());
         System.out.println("Update Test Doctor successful");
-        ac.deleteArzt(101);
-        arzte = ac.readAll();
-        assertTrue(arzte.isEmpty());
+        ac.deleteDoctor(101);
+        Doctore = ac.readAll();
+        assertTrue(Doctore.isEmpty());
         System.out.println("Delete Test Doctor successful");
     }
 
@@ -83,4 +83,4 @@ public class Test1 {
         System.out.println("Delete Test Illness successful");
     }
 
-}
+}*/

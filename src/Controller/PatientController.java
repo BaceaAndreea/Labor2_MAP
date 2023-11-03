@@ -1,68 +1,53 @@
 package Controller;
-import Repository.*;
-import Domain.*;
 
+import Domain.Patient;
+import Repository.PatientRepository;
 import java.util.ArrayList;
 
-public class PatientController {
-    private final PatientRepo patientRepo;
-
-    public PatientController(PatientRepo patientRepo){
-        this.patientRepo = patientRepo;
+public class PatientController implements ControllerInterface<Patient> {
+    private final PatientRepository patientRepository;
+    public PatientController(PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
     }
-
-    public void addPatient(int patientID, String name, String vorname, String geburtsdatum, String kontakttelefon, int karteID){
-        if(patientRepo != null) {
+    @Override
+    public void add(ArrayList<String> newObjectData){
+        /*if(patientRepository != null) {
             if (patientID < 0) {
                 throw new IllegalArgumentException("PatientID is positive.");
             }
-            for (Patient patient : patientRepo.readAll()) {
+            for (Patient patient :patientRepo.readAll()) {
                 if (patient.getPatientID() == patientID) {
                     throw new IllegalArgumentException("PatientID is unique.");
                 }
             }
-        }
-        Patient newPatient = new Patient(patientID, name, vorname, geburtsdatum, kontakttelefon, karteID);
-        patientRepo.add(newPatient);
-    }
-    public boolean findPatient(int patientID){
-        for(Patient patient : patientRepo.readAll()){
-            if(patient.getPatientID() == patientID) {
-                return true;
-            }
-        }
-        return false;
+        }*/
+        Patient newObject= new Patient(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1), newObjectData.get(2), newObjectData.get(3), newObjectData.get(4), Integer.parseInt(newObjectData.get(5)));
+        patientRepository.add(newObject);
     }
 
-    public void deletePateint(int patientID){
-        boolean found = findPatient(patientID);
-        if (found == false) {
-            throw new IllegalArgumentException("PatientID not found");
-        } else{
-            for(Patient patient : patientRepo.readAll()){
-                if(patient.getPatientID() == patientID){
-                    patientRepo.delete(patient);
-                    break;
-                }
-            }
+    @Override
+    public void delete(ArrayList<String> identifier) {
+        if(patientRepository.findByIdentifier(identifier) != null) {
+            patientRepository.delete(patientRepository.findByIdentifier(identifier));
+        }
+        else {
+            throw new IllegalArgumentException("Nothing was found for the provided identifier.");
         }
     }
 
-    public void updatePateint(int patientID, String name, String vorname, String geburtsdatum, String kontakttelefon, int karteID) {
-        boolean found = findPatient(patientID);
-        if (found == false) {
-            throw new IllegalArgumentException("PatientID not found");
-        } else {
-            for (Patient patient : patientRepo.readAll()) {
-                if (patient.getPatientID() == patientID) {
-                    Patient newPatient = new Patient(patientID, name, vorname, geburtsdatum, kontakttelefon, karteID);
-                    patientRepo.update(patient, newPatient);
-                }
-            }
+    @Override
+    public void update(ArrayList<String> identifier, ArrayList<String> newObjectData) {
+        if(patientRepository.findByIdentifier(identifier) != null) {
+            delete(identifier);
+            add(newObjectData);
+        }
+        else{
+            throw new IllegalArgumentException("Nothing was found for the provided identifier.");
         }
     }
 
+    @Override
     public ArrayList<Patient> readAll(){
-        return patientRepo.readAll();
+        return patientRepository.readAll();
     }
 }

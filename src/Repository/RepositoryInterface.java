@@ -8,7 +8,5 @@ public interface RepositoryInterface<ObjectType>{
     void delete(ObjectType deletedObject);
     void update(ObjectType oldObject, ObjectType newObject);
     ArrayList<ObjectType> readAll();
-
+    ObjectType findByIdentifier(ArrayList <String> identifier);
 }
-
-

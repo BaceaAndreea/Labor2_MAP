@@ -3,26 +3,26 @@ package Domain;
 public class Patient {
     private int patientID;
     private String name;
-    private String vorname;
-    private String geburtsdatum;
-    private String kontakttelefon;
-    private int karteID;
+    private String firstName;
+    private String birthdate;
+    private String contactPhone;
+    private int cardID;
 
-    public Patient(int patientID, String name, String vorname, String geburtsdatum, String kontakttelefon, int karteID) {
+    public Patient(int patientID, String name, String firstName, String birthdate, String contactPhone, int cardID) {
         this.patientID = patientID;
         this.name = name;
-        this.vorname = vorname;
-        this.geburtsdatum = geburtsdatum;;
-        this.kontakttelefon = kontakttelefon;
-        this.karteID = karteID;
+        this.firstName = firstName;
+        this.birthdate = birthdate;
+        this.contactPhone = contactPhone;
+        this.cardID = cardID;
     }
 
-    public int getKarteID() {
-        return karteID;
+    public int getCardID() {
+        return cardID;
     }
 
-    public void setKarteID(int karteID) {
-        this.karteID = karteID;
+    public void setCardID(int cardID) {
+        this.cardID = cardID;
     }
 
     public int getPatientID() {
@@ -41,28 +41,28 @@ public class Patient {
         this.name = name;
     }
 
-    public String getVorname() {
-        return vorname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getGeburtsdatum() {
-        return geburtsdatum;
+    public String getBirthdate() {
+        return birthdate;
     }
 
-    public void setGeburtsdatum(String geburtsdatum) {
-        this.geburtsdatum = geburtsdatum;
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
-    public String getKontakttelefon() {
-        return kontakttelefon;
+    public String getContactPhone() {
+        return contactPhone;
     }
 
-    public void setKontakttelefon(String kontakttelefon) {
-        this.kontakttelefon = kontakttelefon;
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
     }
 
     @Override
@@ -70,20 +70,10 @@ public class Patient {
         return "Patient{" +
                 "patientID=" + patientID +
                 ", name='" + name + '\'' +
-                ", vorname='" + vorname + '\'' +
-                ", geburtsdatum='" + geburtsdatum + '\'' +
-                ", kontakttelefon='" + kontakttelefon + '\'' +
-                ", karteID=" + karteID +
+                ", firstName='" + firstName + '\'' +
+                ", birthdate='" + birthdate + '\'' +
+                ", contactPhone='" + contactPhone + '\'' +
+                ", cardID=" + cardID +
                 '}';
     }
 }
-
-
-
-
-
-
-
-
-
-
