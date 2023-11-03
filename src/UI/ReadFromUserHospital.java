@@ -7,18 +7,18 @@ public class ReadFromUserHospital implements ReadFromUserInterface {
     public static ArrayList<String> readNewObjectData() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> newObjectData = new ArrayList<String>();
-        System.out.print("HospitalId: ");
+        System.out.print("ID of the hospital (FORMAT DDDD WHERE D- DIGIT): ");
         newObjectData.add(scanner.nextLine());
-        System.out.print("Name Speciality: ");
+        System.out.print("Name of the hospital: ");
         newObjectData.add(scanner.nextLine());
-        System.out.println("Capacity: ");
+        System.out.println("Capacity (NUMBER OF BEDS): ");
         newObjectData.add(scanner.nextLine());
         return newObjectData;
     }
     public static ArrayList<String> readIdentifier() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> newObjectData = new ArrayList<String>();
-        System.out.print("ID of the Hospital: ");
+        System.out.print("ID of the hospital (FORMAT DDDD WHERE D- DIGIT): ");
         newObjectData.add(scanner.nextLine());
         return newObjectData;
     }

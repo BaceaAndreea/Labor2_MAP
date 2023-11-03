@@ -2,54 +2,73 @@ package UI;
 
 import Controller.*;
 import Domain.Doctor;
+import Domain.Medication;
 import Domain.Patient;
+import Repository.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Start {
-    public static DoctorController doctorController;
-    public static PatientController patientController;
-    public static MedicationController medicationController;
-    public static SurgeryController surgeryController;
-    public static SpecializationController specializationController;
-    public static DiseaseController diseaseController;
-    public static ConsultationController consultationController;
-    public static CabinetController cabinetController;
-    public static HospitalController hospitalController;
+
+    public static DoctorRepository doctorRepository = new DoctorRepository();
+    public static PatientRepository patientRepository = new PatientRepository();
+    public static MedicationRepository medicationRepository = new MedicationRepository();
+    public static SurgeryRepository surgeryRepository = new SurgeryRepository();
+    public static SpecializationRepository specializationRepository = new SpecializationRepository();
+    public static DiseaseRepository diseaseRepository = new DiseaseRepository();
+    public static ConsultationRepository consultationRepository = new ConsultationRepository();
+    public static CabinetRepository cabinetRepository = new CabinetRepository();
+    public static HospitalRepository hospitalRepository = new HospitalRepository();
+    public static DoctorController doctorController = new DoctorController(doctorRepository);
+    public static PatientController patientController = new PatientController(patientRepository);
+    public static MedicationController medicationController = new MedicationController(medicationRepository);
+    public static SurgeryController surgeryController = new SurgeryController(surgeryRepository);
+    public static SpecializationController specializationController = new SpecializationController(specializationRepository);
+    public static DiseaseController diseaseController = new DiseaseController(diseaseRepository);
+    public static ConsultationController consultationController = new ConsultationController(consultationRepository);
+    public static CabinetController cabinetController = new CabinetController(cabinetRepository);
+    public static HospitalController hospitalController = new HospitalController(hospitalRepository);
+
+
 
     public static void RUN() {
         Scanner scanner = new Scanner(System.in);
-        String answer = "yes";
-        while (answer.equals("yes")) {
+        String answer = "Yes";
+        while (answer.equals("Yes")) {
             DisplayMenu2();
             switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
                     System.out.println("First we want to get to know you: ");
                     break;
                 case 2:
+                    System.out.println("Which operation do you wish to execute? ");
                     DisplayMenu3();
                     switch (Integer.parseInt(scanner.nextLine())) {
                         case 1:
+                            System.out.println("Choose the entity you want to work with.");
                             Menu1();
                             break;
                         case 2:
+                            System.out.println("Choose the entity you want to work with.");
                             Menu2();
                             break;
                         case 3:
+                            System.out.println("Choose the entity you want to work with.");
                             Menu3();
                             break;
                         case 4:
+                            System.out.println("Choose the entity you want to work with.");
                             Menu4();
                             break;
                         default:
-                            System.out.println("Invalid choice.\n");
+                            System.out.println("Invalid choice.");
                             break;
                     }
                     break;
                 default:
-                    System.out.println("Invalid choice.\n");
+                    System.out.println("Invalid choice.");
                     break;
             }
         }
@@ -86,7 +105,7 @@ public class Start {
             case 9:
                 hospitalController.add(ReadFromUserHospital.readNewObjectData());
             default:
-                System.out.println("Invalid choice.\n");
+                System.out.println("Invalid choice.");
                 break;
         }
     }
@@ -123,7 +142,7 @@ public class Start {
             case 9:
                 hospitalController.update(ReadFromUserHospital.readIdentifier(), ReadFromUserHospital.readNewObjectData());
             default:
-                System.out.println("Invalid choice.\n");
+                System.out.println("Invalid choice.");
                 break;
         }
     }
@@ -159,7 +178,7 @@ public class Start {
             case 9:
                 hospitalController.delete(ReadFromUserHospital.readIdentifier());
             default:
-                System.out.println("Invalid choice.\n");
+                System.out.println("Invalid choice.");
                 break;
         }
     }
@@ -193,7 +212,7 @@ public class Start {
                 System.out.println(consultationController.readAll());
                 break;
             default:
-                System.out.println("Invalid choice.\n");
+                System.out.println("Invalid choice.");
                 break;
         }
     }
@@ -227,13 +246,13 @@ public class Start {
 
     public static String continueLoop(String answer){
         Scanner scanner = new Scanner(System.in);
-        while (!answer.equals("no") && !answer.equals("yes")) {
-            System.out.println("\nWant to continue? (yes/ no)\n");
+        while (!answer.equals("No") && !answer.equals("Yes")) {
+            System.out.println("Want to continue? (Yes/ No)");
             answer = scanner.nextLine();
-            if (answer.equals("no")) {
-                System.out.println("Bye.\n");
-            } else if (!answer.equals("yes")) {
-                System.out.println("Answer not valid. Try again.\n");
+            if (answer.equals("No")) {
+                System.out.println("Bye.");
+            } else if (!answer.equals("Yes")) {
+                System.out.println("Answer not valid. Try again.");
             }
         }
         return answer;
