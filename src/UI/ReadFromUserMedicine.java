@@ -7,7 +7,7 @@ public class ReadFromUserMedicine implements ReadFromUserInterface {
     public static ArrayList<String> readNewObjectData() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> newObjectData = new ArrayList<String>();
-        System.out.print("ID of the medicine (FORMAT DDDD WHERE D- DIGIT): ");
+        System.out.print("ID of the medicine (FORMAT gDDD WHERE D- DIGIT): ");
         newObjectData.add(scanner.nextLine());
         System.out.print("Name of the medicine: ");
         newObjectData.add(scanner.nextLine());
@@ -22,7 +22,7 @@ public class ReadFromUserMedicine implements ReadFromUserInterface {
     public static ArrayList<String> readIdentifier() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> newObjectData = new ArrayList<String>();
-        System.out.print("ID of the medicine (FORMAT DDDD WHERE D- DIGIT): ");
+        System.out.print("ID of the medicine (FORMAT 6DDD WHERE D- DIGIT): ");
         newObjectData.add(scanner.nextLine());
         return newObjectData;
     }

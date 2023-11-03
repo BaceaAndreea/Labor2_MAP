@@ -3,10 +3,20 @@ package Domain;
 public class ElectronicCard {
     private String expirationDate;
     private int pin;
+    private int electronicID;
 
-    public ElectronicCard(String expirationDate, int pin) {
+    public ElectronicCard(String expirationDate, int pin, int electronicID) {
         this.expirationDate = expirationDate;
         this.pin = pin;
+        this.electronicID = electronicID;
+    }
+
+    public int getElectronicID() {
+        return electronicID;
+    }
+
+    public void setElectronicID(int electronicID) {
+        this.electronicID = electronicID;
     }
 
     public String getExpirationDate() {
@@ -30,6 +40,7 @@ public class ElectronicCard {
         return "ElectronicCard{" +
                 "expirationDate='" + expirationDate + '\'' +
                 ", pin=" + pin +
+                ", electronicID=" + electronicID +
                 '}';
     }
 }

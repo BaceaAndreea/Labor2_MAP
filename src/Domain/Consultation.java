@@ -8,12 +8,11 @@ public class Consultation {
     private boolean card;
     private int price;
 
-    public Consultation(int patientID, int doctorID, String date, int diseaseID, boolean card, int price) {
+    public Consultation(int patientID, int doctorID, String date, int diseaseID, int price) {
         this.patientID = patientID;
         this.doctorID = doctorID;
         this.date = date;
         this.diseaseID = diseaseID;
-        this.card = card;
         this.price = price;
     }
 

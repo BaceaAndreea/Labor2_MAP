@@ -21,7 +21,7 @@ public class ConsultationController implements ControllerInterface<Consultation>
                 }
             }
         }*/
-        Consultation newObject= new Consultation(Integer.parseInt(newObjectData.get(0)), Integer.parseInt(newObjectData.get(1)), newObjectData.get(2), Integer.parseInt(newObjectData.get(3)), Boolean.parseBoolean(newObjectData.get(4)), Integer.parseInt(newObjectData.get(5)));
+        Consultation newObject= new Consultation(Integer.parseInt(newObjectData.get(0)), Integer.parseInt(newObjectData.get(1)), newObjectData.get(2), Integer.parseInt(newObjectData.get(3)), Integer.parseInt(newObjectData.get(5)));
         consultationRepository.add(newObject);
     }
 

@@ -3,8 +3,8 @@ package Domain;
 public class HealthCard extends ElectronicCard {
     private int cardID;
 
-    public HealthCard(String expirationDate, int pin, int cardID) {
-        super(expirationDate, pin);
+    public HealthCard(String expirationDate, int pin, int electronicID, int cardID) {
+        super(expirationDate, pin, electronicID);
         this.cardID = cardID;
     }
 

@@ -34,7 +34,7 @@ class ElectronicCardRepository implements RepositoryInterface<ElectronicCard> {
     @Override
     public ElectronicCard findByIdentifier(ArrayList<String> identifier){
         for(ElectronicCard electronicCard : electronicCards){
-            if(electronicCard.getPin() == Integer.parseInt(identifier.get(0))){
+            if(electronicCard.getElectronicID() == Integer.parseInt(identifier.get(0))){
                 return electronicCard;
             }
         }
