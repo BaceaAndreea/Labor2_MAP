@@ -11,16 +11,6 @@ public class DoctorController implements ControllerInterface<Doctor> {
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        /*if(doctorRepository != null) {
-            if (doctorID < 0) {
-                throw new IllegalArgumentException("DoctorID is positive.");
-            }
-            for (Doctor doctor :doctorRepo.readAll()) {
-                if (doctor.getDoctorID() == doctorID) {
-                    throw new IllegalArgumentException("DoctorID is unique.");
-                }
-            }
-        }*/
         Doctor newObject= new Doctor(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1), newObjectData.get(2), newObjectData.get(3), Integer.parseInt(newObjectData.get(4)), newObjectData.get(5), Integer.parseInt(newObjectData.get(6)),Integer.parseInt( newObjectData.get(7)));
         doctorRepository.add(newObject);
     }

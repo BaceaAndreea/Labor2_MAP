@@ -11,16 +11,6 @@ public class SpecializationController implements ControllerInterface<Specializat
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        /*if(specializationRepository != null) {
-            if (specializationID < 0) {
-                throw new IllegalArgumentException("SpecializationID is positive.");
-            }
-            for (Specialization specialization :specializationRepo.readAll()) {
-                if (specialization.getSpecializationID() == specializationID) {
-                    throw new IllegalArgumentException("SpecializationID is unique.");
-                }
-            }
-        }*/
         Specialization newObject= new Specialization(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1));
         specializationRepository.add(newObject);
     }

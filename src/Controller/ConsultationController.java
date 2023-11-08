@@ -11,16 +11,6 @@ public class ConsultationController implements ControllerInterface<Consultation>
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        /*if(consultationRepository != null) {
-            if (consultationID < 0) {
-                throw new IllegalArgumentException("ConsultationID is positive.");
-            }
-            for (Consultation consultation :consultationRepo.readAll()) {
-                if (consultation.getConsultationID() == consultationID) {
-                    throw new IllegalArgumentException("ConsultationID is unique.");
-                }
-            }
-        }*/
         Consultation newObject= new Consultation(Integer.parseInt(newObjectData.get(0)), Integer.parseInt(newObjectData.get(1)), newObjectData.get(2), Integer.parseInt(newObjectData.get(3)), Integer.parseInt(newObjectData.get(5)));
         consultationRepository.add(newObject);
     }

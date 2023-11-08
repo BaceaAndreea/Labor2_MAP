@@ -11,16 +11,6 @@ public class CabinetController implements ControllerInterface<Cabinet> {
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        /*if(cabinetRepository != null) {
-            if (cabinetID < 0) {
-                throw new IllegalArgumentException("CabinetID is positive.");
-            }
-            for (Cabinet cabinet :cabinetRepo.readAll()) {
-                if (cabinet.getCabinetID() == cabinetID) {
-                    throw new IllegalArgumentException("CabinetID is unique.");
-                }
-            }
-        }*/
         Cabinet newObject= new Cabinet(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1));
         cabinetRepository.add(newObject);
     }
