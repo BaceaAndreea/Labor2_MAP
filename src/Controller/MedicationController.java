@@ -11,16 +11,6 @@ public class MedicationController implements ControllerInterface<Medication> {
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        /*if(medicationRepository != null) {
-            if (medicationID < 0) {
-                throw new IllegalArgumentException("MedicationID is positive.");
-            }
-            for (Medication medication :medicationRepo.readAll()) {
-                if (medication.getMedicationID() == medicationID) {
-                    throw new IllegalArgumentException("MedicationID is unique.");
-                }
-            }
-        }*/
         Medication newObject= new Medication(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1), newObjectData.get(2), Integer.parseInt(newObjectData.get(3)), newObjectData.get(4));
         medicationRepository.add(newObject);
     }

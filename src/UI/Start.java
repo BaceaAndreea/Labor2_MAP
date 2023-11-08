@@ -110,6 +110,7 @@ public class Start {
                 break;
             case 9:
                 hospitalController.add(ReadFromUserHospital.readNewObjectData());
+                break;
             default:
                 System.out.println("Invalid choice.");
                 break;
@@ -147,6 +148,7 @@ public class Start {
                 break;
             case 9:
                 hospitalController.update(ReadFromUserHospital.readIdentifier(), ReadFromUserHospital.readNewObjectData());
+                break;
             default:
                 System.out.println("Invalid choice.");
                 break;

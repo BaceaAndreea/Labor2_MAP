@@ -11,16 +11,6 @@ public class HospitalController implements ControllerInterface<Hospital> {
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        /*if(hospitalRepository != null) {
-            if (hospitalID < 0) {
-                throw new IllegalArgumentException("HospitalID is positive.");
-            }
-            for (Hospital hospital :hospitalRepo.readAll()) {
-                if (hospital.getHospitalID() == hospitalID) {
-                    throw new IllegalArgumentException("HospitalID is unique.");
-                }
-            }
-        }*/
         Hospital newObject= new Hospital(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1), Integer.parseInt(newObjectData.get(2)));
         hospitalRepository.add(newObject);
     }

@@ -11,16 +11,6 @@ public class SurgeryController implements ControllerInterface<Surgery> {
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        /*if(surgeryRepository != null) {
-            if (surgeryID < 0) {
-                throw new IllegalArgumentException("SurgeryID is positive.");
-            }
-            for (Surgery surgery :surgeryRepo.readAll()) {
-                if (surgery.getSurgeryID() == surgeryID) {
-                    throw new IllegalArgumentException("SurgeryID is unique.");
-                }
-            }
-        }*/
         Surgery newObject= new Surgery(Integer.parseInt(newObjectData.get(0)), Integer.parseInt(newObjectData.get(1)), newObjectData.get(2), Integer.parseInt(newObjectData.get(3)), newObjectData.get(4), Integer.parseInt(newObjectData.get(5)));
         surgeryRepository.add(newObject);
     }

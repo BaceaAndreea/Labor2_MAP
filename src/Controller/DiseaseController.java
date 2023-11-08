@@ -11,16 +11,6 @@ public class DiseaseController implements ControllerInterface<Disease> {
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        /*if(diseaseRepository != null) {
-            if (diseaseID < 0) {
-                throw new IllegalArgumentException("DiseaseID is positive.");
-            }
-            for (Disease disease :diseaseRepo.readAll()) {
-                if (disease.getDiseaseID() == diseaseID) {
-                    throw new IllegalArgumentException("DiseaseID is unique.");
-                }
-            }
-        }*/
         Disease newObject= new Disease(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1));
         diseaseRepository.add(newObject);
     }
