@@ -14,6 +14,12 @@ public class HealthCardController {
         this.healthCardRepository = healthCardRepository;
     }
 
+    //tot timpu returneaza o noua instanta a HealthCardController și primește un HealthCardRepository ca parametru.
+    public static HealthCardController getInstance(HealthCardRepository healthCardRepository) {
+        return new HealthCardController(healthCardRepository);
+    }
+
+
     public void addECard(ArrayList<String> eCardData) {
         ECard eCard = healthCardRepository.createECard(eCardData);
         healthCardRepository.add(eCard);

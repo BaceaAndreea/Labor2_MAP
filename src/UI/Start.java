@@ -32,8 +32,8 @@ public class Start {
     public static HospitalController hospitalController = new HospitalController(hospitalRepository);
     public static ECardFactory eCardFactory = new ECardFactory();
     public static PaperCardFactory paperCardFactory = new PaperCardFactory();
-    public static HealthCardRepository healthCardRepository = new HealthCardRepository(eCardFactory, paperCardFactory);
-    public static HealthCardController healthCardController = new HealthCardController(healthCardRepository);
+    public static HealthCardRepository healthCardRepository = HealthCardRepository.getInstance(eCardFactory, paperCardFactory);
+    public static HealthCardController healthCardController = HealthCardController.getInstance(healthCardRepository);
     public static void run() {
         populate();
         Scanner scanner = new Scanner(System.in);

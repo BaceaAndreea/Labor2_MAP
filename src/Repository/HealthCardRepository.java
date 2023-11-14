@@ -14,11 +14,22 @@ public class HealthCardRepository implements RepositoryInterface<HealthCard> {
     private final HealthCardFactory<ECard> eCardFactory ;
     private final HealthCardFactory<PaperCard> paperCardFactory;
 
-    public HealthCardRepository(HealthCardFactory<ECard> eCardFactory, HealthCardFactory<PaperCard> paperCardFactory) {
+    private static HealthCardRepository instance;
+
+    // Constructor privat pentru a împiedica crearea directă de instanțe
+    private HealthCardRepository(HealthCardFactory<ECard> eCardFactory, HealthCardFactory<PaperCard> paperCardFactory) {
         this.eCardFactory = eCardFactory;
         this.paperCardFactory = paperCardFactory;
     }
 
+    // Metodă publică pentru a obține instanța unică
+    public static HealthCardRepository getInstance(HealthCardFactory<ECard> eCardFactory, HealthCardFactory<PaperCard> paperCardFactory) {
+        if (instance == null) {
+            instance = new HealthCardRepository(eCardFactory, paperCardFactory);
+            // Crează instanța doar dacă nu există deja
+        }
+        return instance;
+    }
 
     @Override
     public void add(HealthCard newObject) {
@@ -59,5 +70,13 @@ public class HealthCardRepository implements RepositoryInterface<HealthCard> {
             }
         }
         return null;
+    }
+
+    public ECard createECard(ArrayList<String> eCardData) {
+        return eCardFactory.create(eCardData);
+    }
+
+    public PaperCard createPaperCard(ArrayList<String> paperCardData) {
+        return paperCardFactory.create(paperCardData);
     }
 }

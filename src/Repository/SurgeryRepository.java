@@ -24,7 +24,6 @@ public class SurgeryRepository implements RepositoryInterface<Surgery> {
             surgeries.set(index, newObject);
         }
     }
-
     @Override
     public ArrayList<Surgery> readAll() {
         return surgeries;
