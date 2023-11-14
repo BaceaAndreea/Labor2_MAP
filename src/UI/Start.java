@@ -185,6 +185,7 @@ public class Start {
                 break;
             case 9:
                 hospitalController.delete(ReadFromUserHospital.readIdentifier());
+                break;
             default:
                 System.out.println("Invalid choice.");
                 break;
