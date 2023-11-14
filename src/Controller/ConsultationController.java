@@ -1,10 +1,11 @@
 package Controller;
+import Observers.*;
 
 import Domain.Consultation;
 import Repository.ConsultationRepository;
 import java.util.ArrayList;
 
-public class ConsultationController implements ControllerInterface<Consultation> {
+public class ConsultationController implements ControllerInterface<Consultation>, Observer{
     private final ConsultationRepository consultationRepository;
     public ConsultationController(ConsultationRepository consultationRepository) {
         this.consultationRepository = consultationRepository;

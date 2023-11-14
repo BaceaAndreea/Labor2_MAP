@@ -1,4 +1,5 @@
 package Domain;
+import Observers.Observer;
 
 public class Patient {
     private int patientID;

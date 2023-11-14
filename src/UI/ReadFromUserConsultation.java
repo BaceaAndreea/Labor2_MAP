@@ -1,5 +1,7 @@
 package UI;
 
+import Controller.ControllerInterface;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,6 +21,9 @@ public class ReadFromUserConsultation implements ReadFromUserInterface {
         newObjectData.add(scanner.nextLine());
         System.out.println("Price of the consult: ");
         newObjectData.add(scanner.nextLine());
+
+
+
         return newObjectData;
     }
     public static ArrayList<String> readIdentifier() {

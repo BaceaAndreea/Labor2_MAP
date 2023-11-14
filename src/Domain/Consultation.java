@@ -1,6 +1,11 @@
 package Domain;
 
-public class Consultation {
+import Observers.Observable;
+import Observers.Observer;
+
+import java.util.ArrayList;
+
+public class Consultation implements Observable {
     private int patientID;
     private int doctorID;
     private String date;
@@ -74,5 +79,24 @@ public class Consultation {
                 ", card=" + card +
                 ", price=" + price +
                 '}';
+    }
+
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+        notifyObservers();
+    }
+
+    @Override
+    public void removeObserver(Observer observer){
+        observers.remove(observer);
+        notifyObservers();
+    }
+    @Override
+    public void notifyObservers(){
+        for(Observer observer  : observers){
+            observer.updateObservers(this.patientID);
+        }
     }
 }
