@@ -16,7 +16,7 @@ public class HealthCardRepository implements RepositoryInterface<HealthCard> {
 
     private static HealthCardRepository instance;
 
-    // Constructor privat pentru a împiedica crearea directă de instanțe
+    //Constructor privat pentru a împiedica crearea directă de instanțe
     private HealthCardRepository(HealthCardFactory<ECard> eCardFactory, HealthCardFactory<PaperCard> paperCardFactory) {
         this.eCardFactory = eCardFactory;
         this.paperCardFactory = paperCardFactory;
