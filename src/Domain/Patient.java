@@ -1,7 +1,7 @@
 package Domain;
 import Observers.Observer;
 
-public class Patient {
+public class Patient{
     private int patientID;
     private String name;
     private String firstName;
@@ -77,4 +77,5 @@ public class Patient {
                 ", cardID=" + cardID +
                 '}';
     }
+
 }

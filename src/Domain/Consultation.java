@@ -12,6 +12,7 @@ public class Consultation implements Observable {
     private int diseaseID;
     private boolean card;
     private int price;
+    private ArrayList<Observer> observers;
 
     public Consultation(int patientID, int doctorID, String date, int diseaseID, int price) {
         this.patientID = patientID;
@@ -19,6 +20,7 @@ public class Consultation implements Observable {
         this.date = date;
         this.diseaseID = diseaseID;
         this.price = price;
+        this.observers= new ArrayList<>();
     }
 
     public int getPatientID() {
