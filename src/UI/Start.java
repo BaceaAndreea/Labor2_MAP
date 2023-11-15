@@ -2,6 +2,8 @@ package UI;
 
 import Controller.*;
 import Domain.*;
+import Factory.ECardFactory;
+import Factory.PaperCardFactory;
 import Repository.*;
 
 import java.util.ArrayList;
@@ -28,7 +30,10 @@ public class Start {
     public static ConsultationController consultationController = new ConsultationController(consultationRepository);
     public static CabinetController cabinetController = new CabinetController(cabinetRepository);
     public static HospitalController hospitalController = new HospitalController(hospitalRepository);
-
+    public static ECardFactory eCardFactory = new ECardFactory();
+    public static PaperCardFactory paperCardFactory = new PaperCardFactory();
+    public static HealthCardRepository healthCardRepository = new HealthCardRepository(eCardFactory, paperCardFactory);
+    public static HealthCardController healthCardController = new HealthCardController(healthCardRepository);
     public static void run() {
         populate();
         Scanner scanner = new Scanner(System.in);
@@ -37,7 +42,7 @@ public class Start {
             DisplayMenu2();
             switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
-                    System.out.println("First we want to get to know you: ");
+                    Menu5();
                     break;
                 case 2:
                     System.out.println("Which operation do you wish to execute? ");
@@ -241,6 +246,46 @@ public class Start {
                 break;
         }
     }
+    public static void Menu5(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("First we want to get to know you. Which is your patientID?");
+        ArrayList<String> identifier = new ArrayList<>();
+        identifier.add(scanner.nextLine());
+        if(patientRepository.findByIdentifier(identifier) == null)
+            System.out.println("Sorry, no such patient was found.");
+        else{
+            boolean runMenu = true;
+
+            while (runMenu) {
+                DisplayMenuCard();
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        healthCardController.addECard(ReadFromUserHealthCard.readECardData());
+                        break;
+                    case 2:
+                        healthCardController.addPaperCard(ReadFromUserHealthCard.readPaperCardData());
+                        break;
+                    case 3:
+                        healthCardController.delete(ReadFromUserHealthCard.readIdentifier());
+                        break;
+                    case 4:
+                        healthCardController.update(ReadFromUserHealthCard.readIdentifier(),ReadFromUserHealthCard.readECardData());
+                        break;
+                    case 5:
+                        for(HealthCard healthCard: healthCardController.readAll()) {
+                            System.out.println(healthCard+"\n");
+                        }
+                        break;
+                    case 6:
+                        runMenu = false;
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            }
+        }
+    }
 
     public static void DisplayMenu1() {
         System.out.println("1. Doctor.");
@@ -267,6 +312,14 @@ public class Start {
         System.out.println("3. Delete.");
         System.out.println("4. See all.");
         System.out.println("What do you pick?");
+    }
+
+    public static void DisplayMenuCard(){
+        System.out.println("1. Add Electronic Card");
+        System.out.println("2. Add Paper Card");
+        System.out.println("3. Delete Health Card");
+        System.out.println("4. Update Card");
+        System.out.println("5. Display All Health Cards");
     }
 
 

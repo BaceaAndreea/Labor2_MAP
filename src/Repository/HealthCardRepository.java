@@ -1,12 +1,24 @@
 package Repository;
 
+import Domain.ECard;
+import Domain.PaperCard;
 import Domain.HealthCard;
-import Domain.Medication;
+import Factory.ECardFactory;
+import Factory.HealthCardFactory;
+import Factory.PaperCardFactory;
 
 import java.util.ArrayList;
 
-class HealthCardRepository implements RepositoryInterface<HealthCard> {
-    private ArrayList<HealthCard> healthCards = new ArrayList<>();
+public class HealthCardRepository implements RepositoryInterface<HealthCard> {
+    private final ArrayList<HealthCard> healthCards = new ArrayList<>();
+    private final HealthCardFactory<ECard> eCardFactory ;
+    private final HealthCardFactory<PaperCard> paperCardFactory;
+
+    public HealthCardRepository(HealthCardFactory<ECard> eCardFactory, HealthCardFactory<PaperCard> paperCardFactory) {
+        this.eCardFactory = eCardFactory;
+        this.paperCardFactory = paperCardFactory;
+    }
+
 
     @Override
     public void add(HealthCard newObject) {
@@ -30,11 +42,20 @@ class HealthCardRepository implements RepositoryInterface<HealthCard> {
     public ArrayList<HealthCard> readAll() {
         return healthCards;
     }
+
     @Override
-    public HealthCard findByIdentifier(ArrayList<String> identifier){
-        for(HealthCard healthCard : healthCards){
-            if(healthCard.getCardID() == Integer.parseInt(identifier.get(0))){
-                return healthCard;
+    public HealthCard findByIdentifier(ArrayList<String> identifier) {
+        for (HealthCard healthCard : healthCards) {
+            if (healthCard instanceof ECard) {
+                ECard eCard = (ECard) healthCard;
+                if (eCard.getElectronicID() == Integer.parseInt(identifier.get(0))) {
+                    return eCard;
+                }
+            } else if (healthCard instanceof PaperCard) {
+                PaperCard paperCard = (PaperCard) healthCard;
+                if (paperCard.getWrittenID() == Integer.parseInt(identifier.get(0))) {
+                    return paperCard;
+                }
             }
         }
         return null;
