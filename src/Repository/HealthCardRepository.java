@@ -15,8 +15,6 @@ public class HealthCardRepository implements RepositoryInterface<HealthCard> {
     private final HealthCardFactory<PaperCard> paperCardFactory;
 
     private static HealthCardRepository instance;
-
-    //Constructor privat pentru a împiedica crearea directă de instanțe
     private HealthCardRepository(HealthCardFactory<ECard> eCardFactory, HealthCardFactory<PaperCard> paperCardFactory) {
         this.eCardFactory = eCardFactory;
         this.paperCardFactory = paperCardFactory;
@@ -26,7 +24,6 @@ public class HealthCardRepository implements RepositoryInterface<HealthCard> {
     public static HealthCardRepository getInstance(HealthCardFactory<ECard> eCardFactory, HealthCardFactory<PaperCard> paperCardFactory) {
         if (instance == null) {
             instance = new HealthCardRepository(eCardFactory, paperCardFactory);
-            // Crează instanța doar dacă nu există deja
         }
         return instance;
     }
