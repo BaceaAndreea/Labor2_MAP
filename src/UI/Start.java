@@ -324,17 +324,104 @@ public class Start {
 
 
     public static void populate(){
-        doctorRepository.add(new Doctor(1001, "Smith", "John", "1999-02-20", 5001, "555-9485-4948",2002, 9008));
-        doctorRepository.add(new Doctor(1002, "Johnson", "Sarah", "1998-05-15", 5002, "555-3948-5858", 2003, 9009));
-        doctorRepository.add(new Doctor(1003, "Williams", "Michael", "1997-09-12", 5003, "555-9394-4848", 2004, 9010));
-        doctorRepository.add(new Doctor(1004, "Brown", "Emily", "1996-11-23", 5004, "555-5858-3939", 2005, 9011));
-        doctorRepository.add(new Doctor(1005, "Jones", "Daniel", "1995-03-07", 5005, "555-4848-9393", 2006, 9012));
-        doctorRepository.add(new Doctor(1006, "Garcia", "Sophia", "1994-07-18", 5006, "555-3838-5858", 2007, 9013));
-        doctorRepository.add(new Doctor(1007, "Martinez", "Emma", "1993-12-30", 5007, "555-9393-4848", 2008, 9014));
-        doctorRepository.add(new Doctor(1008, "Davis", "James", "1992-08-02", 5008, "555-5858-3838", 2009, 9015));
-        doctorRepository.add(new Doctor(1009, "Rodriguez", "Olivia", "1991-10-13", 5009, "555-4848-9393", 2010, 9016));
-        doctorRepository.add(new Doctor(1010, "Hernandez", "Noah", "1990-04-25", 5010, "555-3838-5858", 2011, 9017));
-        doctorRepository.add(new Doctor(1011, "Lopez", "Liam", "1989-06-06", 5011, "555-9393-4848", 2012, 9018));
+        Doctor doctor1 = new Doctor.Builder(1001, "Smith", "John")
+                .birthdate("1999-02-20")
+                .hospitalID(5001)
+                .contactPhone("555-9485-4948")
+                .specializationID(2002)
+                .cabinetID(9008)
+                .build();
+        doctorRepository.add(doctor1);
+
+        Doctor doctor2 = new Doctor.Builder(1002, "Johnson", "Sarah")
+                .birthdate("1998-05-15")
+                .hospitalID(5002)
+                .contactPhone("555-3948-5858")
+                .specializationID(2003)
+                .cabinetID(9009)
+                .build();
+        doctorRepository.add(doctor2);
+        Doctor doctor3 = new Doctor.Builder(1003, "Williams", "Michael")
+                .birthdate("1997-09-12")
+                .hospitalID(5003)
+                .contactPhone("555-9394-4848")
+                .specializationID(2004)
+                .cabinetID(9010)
+                .build();
+        doctorRepository.add(doctor3);
+
+        Doctor doctor4 = new Doctor.Builder(1004, "Brown", "Emily")
+                .birthdate("1996-11-23")
+                .hospitalID(5004)
+                .contactPhone("555-5858-3939")
+                .specializationID(2005)
+                .cabinetID(9011)
+                .build();
+        doctorRepository.add(doctor4);
+
+        Doctor doctor5 = new Doctor.Builder(1005, "Jones", "Daniel")
+                .birthdate("1995-03-07")
+                .hospitalID(5005)
+                .contactPhone("555-4848-9393")
+                .specializationID(2006)
+                .cabinetID(9012)
+                .build();
+        doctorRepository.add(doctor5);
+
+        Doctor doctor6 = new Doctor.Builder(1006, "Garcia", "Sophia")
+                .birthdate("1994-07-18")
+                .hospitalID(5006)
+                .contactPhone("555-3838-5858")
+                .specializationID(2007)
+                .cabinetID(9013)
+                .build();
+        doctorRepository.add(doctor6);
+
+        Doctor doctor7 = new Doctor.Builder(1007, "Martinez", "Emma")
+                .birthdate("1993-12-30")
+                .hospitalID(5007)
+                .contactPhone("555-9393-4848")
+                .specializationID(2008)
+                .cabinetID(9014)
+                .build();
+        doctorRepository.add(doctor7);
+
+        Doctor doctor8 = new Doctor.Builder(1008, "Davis", "James")
+                .birthdate("1992-08-02")
+                .hospitalID(5008)
+                .contactPhone("555-5858-3838")
+                .specializationID(2009)
+                .cabinetID(9015)
+                .build();
+        doctorRepository.add(doctor8);
+
+        Doctor doctor9 = new Doctor.Builder(1009, "Rodriguez", "Olivia")
+                .birthdate("1991-10-13")
+                .hospitalID(5009)
+                .contactPhone("555-4848-9393")
+                .specializationID(2010)
+                .cabinetID(9016)
+                .build();
+        doctorRepository.add(doctor9);
+
+        Doctor doctor10 = new Doctor.Builder(1010, "Hernandez", "Noah")
+                .birthdate("1990-04-25")
+                .hospitalID(5010)
+                .contactPhone("555-3838-5858")
+                .specializationID(2011)
+                .cabinetID(9017)
+                .build();
+        doctorRepository.add(doctor10);
+
+        Doctor doctor11 = new Doctor.Builder(1011, "Lopez", "Liam")
+                .birthdate("1989-06-06")
+                .hospitalID(5011)
+                .contactPhone("555-9393-4848")
+                .specializationID(2012)
+                .cabinetID(9018)
+                .build();
+        doctorRepository.add(doctor11);
+
         patientRepository.add(new Patient(3001, "German", "Mikayla", "1999-09-11", "555-2342-7655", 4500));
         patientRepository.add(new Patient(3002, "Johnson", "Daniel", "2000-04-05", "555-9087-1234", 4501));
         patientRepository.add(new Patient(3003, "Williams", "Sophia", "1998-12-30", "555-2345-6789", 4502));

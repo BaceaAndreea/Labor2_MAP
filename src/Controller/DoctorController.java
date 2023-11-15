@@ -11,7 +11,14 @@ public class DoctorController implements ControllerInterface<Doctor> {
     }
     @Override
     public void add(ArrayList<String> newObjectData){
-        Doctor newObject= new Doctor(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1), newObjectData.get(2), newObjectData.get(3), Integer.parseInt(newObjectData.get(4)), newObjectData.get(5), Integer.parseInt(newObjectData.get(6)),Integer.parseInt( newObjectData.get(7)));
+        Doctor newObject = new Doctor.Builder(Integer.parseInt(newObjectData.get(0)), newObjectData.get(1), newObjectData.get(2))
+                .birthdate(newObjectData.get(3))
+                .hospitalID(Integer.parseInt(newObjectData.get(4)))
+                .contactPhone(newObjectData.get(5))
+                .specializationID(Integer.parseInt(newObjectData.get(6)))
+                .cabinetID(Integer.parseInt( newObjectData.get(7)))
+                .build();
+
         doctorRepository.add(newObject);
     }
 

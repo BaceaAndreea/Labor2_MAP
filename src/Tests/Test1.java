@@ -1,86 +1,59 @@
-/*package Tests;
+package Tests;
 
 import Controller.DoctorController;
-import Controller.KrankheitController;
+import Controller.DiseaseController;
 import Controller.PatientController;
 import Domain.Doctor;
-import Domain.Krankheit;
+import Domain.Disease;
 import Domain.Patient;
-import Repository.DoctorRepo;
-import Repository.KrankheitRepo;
-import Repository.PatientRepo;
+import Repository.DoctorRepository;
+import Repository.DiseaseRepository;
+import Repository.PatientRepository;
 import org.junit.Test;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Test1 {
-    PatientRepo pr = new PatientRepo();
-    PatientController pc = new PatientController(pr);
-
-
-
-    @Test
-    public void addUpdateDeleteDoctor() {
-        DoctorRepo ar = new DoctorRepo();
-        DoctorController ac = new DoctorController(ar);
-        Doctor johnDoctor = new Doctor(101, "Smith", "John", "19990302", 303,  "5553456236", 100, 200);
-        ac.addDoctor(101, "Smith", "John", "19990302", 303, "5553456236", 100, 200);
-        ArrayList<Doctor> Doctore = ac.readAll();
-        assertEquals(Doctore.get(0).toString(), johnDoctor.toString());
-        System.out.println("Add Test Doctor successful");
-        ac.updateDoctor(101, "Smith", "Johnathan", "20000302", 303, "5553456236", 100, 200);
-        Doctor johnathanDoctor = new Doctor(101, "Smith", "Johnathan", "20000302", 303, "5553456236", 100, 200);
-        Doctore = ac.readAll();
-        assertEquals(Doctore.get(0).toString(), johnathanDoctor.toString());
-        System.out.println("Update Test Doctor successful");
-        ac.deleteDoctor(101);
-        Doctore = ac.readAll();
-        assertTrue(Doctore.isEmpty());
-        System.out.println("Delete Test Doctor successful");
-    }
-
-
 
     @Test
     public void addUpdateDeletePatient() {
-        Patient anaPateint = new Patient(1001, "Abrac", "Ana", "19920208", "7778656542", 101);
-        pc.addPatient(1001, "Abrac", "Ana", "19920208", "7778656542", 101);
-        ArrayList<Patient> patienten = pc.readAll();
-        assertEquals(patienten.get(0).toString(), anaPateint.toString());
+        PatientRepository pr = new PatientRepository();
+        Patient anaPatient = new Patient(1001, "Abrac", "Ana", "19920208", "7778656542", 101);
+        pr.add(anaPatient);
+        ArrayList<Patient> patients = pr.readAll();
+        assertEquals(patients.get(0).toString(), anaPatient.toString());
         System.out.println("Add Test Patient successful");
-        pc.updatePateint(1001, "Abrac", "Ana", "20000408", "7778656542", 101);
-        Patient mariaPatient = new Patient(1001, "Abrac", "Ana", "20000408", "7778656542", 101);
-        patienten = pc.readAll();
-        assertEquals(patienten.get(0).toString(), mariaPatient.toString());
+        Patient mariaPatient = new Patient(1001, "Abrac", "Maria", "20000408", "7778656542", 101);
+        pr.update(anaPatient, mariaPatient);
+        patients = pr.readAll();
+        assertEquals(patients.get(0).toString(), mariaPatient.toString());
         System.out.println("Update Test Patient successful");
-        pc.deletePateint(1001);
-        patienten = pc.readAll();
-        assertTrue(patienten.isEmpty());
+        pr.delete(mariaPatient);
+        patients = pr.readAll();
+        assertTrue(patients.isEmpty());
         System.out.println("Delete Test Patient successful");
-
     }
 
     @Test
     public void addUpdateDeleteIllness(){
-        KrankheitRepo kr = new KrankheitRepo();
-        KrankheitController kc = new KrankheitController(kr);
-        Krankheit badIlness = new Krankheit(101, "Bad Illness");
-        kc.addKrankheit(101, "Bad Illness");
-        ArrayList<Krankheit> krankheits = kc.readAll();
-        assertEquals(krankheits.get(0).toString(), badIlness.toString());
+        DiseaseRepository dr = new DiseaseRepository();
+        Disease badIllness = new Disease(101, "Bad Illness");
+        dr.add(badIllness);
+        ArrayList<Disease> diseases = dr.readAll();
+        assertEquals(diseases.get(0).toString(), badIllness.toString());
         System.out.println("Add Test Illness successful");
-        kc.updateKrankheit(101, "Very Bad Illness");
-        krankheits = kc.readAll();
-        Krankheit veryBadIlness = new Krankheit(101, "Very Bad Illness");
-        assertEquals(krankheits.get(0).toString(), veryBadIlness.toString());
+        Disease veryBadIllness = new Disease(101, "Very Bad Illness");
+        dr.update(badIllness, veryBadIllness);
+        diseases = dr.readAll();
+        assertEquals(diseases.get(0).toString(), veryBadIllness.toString());
         System.out.println("Update Test Illness successful");
-        kc.deleteKrankheit(101);
-        krankheits = kc.readAll();
-        assertTrue(krankheits.isEmpty());
+        dr.delete(veryBadIllness);
+        diseases = dr.readAll();
+        assertTrue(diseases.isEmpty());
         System.out.println("Delete Test Illness successful");
     }
 
-}*/
+}
