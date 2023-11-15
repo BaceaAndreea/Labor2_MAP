@@ -51,5 +51,5 @@ public class ConsultationController implements ControllerInterface<Consultation>
         System.out.println("Patient with the ID "+patientID+" has been scheduled for a consult.");
     }
 
-
+//
 }
