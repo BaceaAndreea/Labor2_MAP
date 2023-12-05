@@ -18,13 +18,14 @@ public class ConsultationController implements ControllerInterface<Consultation>
         Consultation newObject = new Consultation(Integer.parseInt(newObjectData.get(0)), Integer.parseInt(newObjectData.get(1)), newObjectData.get(2), Integer.parseInt(newObjectData.get(3)), Integer.parseInt(newObjectData.get(5)));
         consultationRepository.add(newObject);
         newObject.addObserver(this);
+        newObject.notifyObservers();
 
     }
 
     @Override
     public void delete(ArrayList<String> identifier) {
         if (consultationRepository.findByIdentifier(identifier) != null) {
-            consultationRepository.findByIdentifier(identifier).removeObserver((Observer)this);
+            consultationRepository.findByIdentifier(identifier).removeObserver(this);
             consultationRepository.delete(consultationRepository.findByIdentifier(identifier));
         } else {
             throw new IllegalArgumentException("Nothing was found for the provided identifier.");

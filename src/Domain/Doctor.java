@@ -83,4 +83,64 @@ public class Doctor {
                 ", cabinetID=" + cabinetID +
                 '}';
     }
+
+    public void setDoctorID(int doctorID) {
+        this.doctorID = doctorID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public int getHospitalID() {
+        return hospitalID;
+    }
+
+    public void setHospitalID(int hospitalID) {
+        this.hospitalID = hospitalID;
+    }
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
+    }
+
+    public int getSpecializationID() {
+        return specializationID;
+    }
+
+    public void setSpecializationID(int specializationID) {
+        this.specializationID = specializationID;
+    }
+
+    public int getCabinetID() {
+        return cabinetID;
+    }
+
+    public void setCabinetID(int cabinetID) {
+        this.cabinetID = cabinetID;
+    }
 }

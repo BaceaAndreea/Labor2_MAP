@@ -87,13 +87,11 @@ public class Consultation implements Observable {
     @Override
     public void addObserver(Observer observer) {
         observers.add(observer);
-        notifyObservers();
     }
 
     @Override
     public void removeObserver(Observer observer){
         observers.remove(observer);
-        notifyObservers();
     }
     @Override
     public void notifyObservers(){
