@@ -1,5 +1,6 @@
 package Controller;
 
+import Decorator.Decorator;
 import Domain.ECard;
 import Domain.PaperCard;
 import Domain.HealthCard;
@@ -7,7 +8,8 @@ import Repository.HealthCardRepository;
 
 import java.util.ArrayList;
 
-public class HealthCardController {
+
+public class HealthCardController implements Decorator {
     private final HealthCardRepository healthCardRepository;
 
     public HealthCardController(HealthCardRepository healthCardRepository) {
@@ -23,11 +25,13 @@ public class HealthCardController {
     public void addECard(ArrayList<String> eCardData) {
         ECard eCard = healthCardRepository.createECard(eCardData);
         healthCardRepository.add(eCard);
+        displayDetails(eCard);
     }
 
     public void addPaperCard(ArrayList<String> paperCardData ) {
         PaperCard paperCard = healthCardRepository.createPaperCard(paperCardData);
         healthCardRepository.add(paperCard);
+        displayDetails(paperCard);
     }
 
     public void delete(ArrayList<String> identifier) {
@@ -58,5 +62,29 @@ public class HealthCardController {
 
     public ArrayList<HealthCard> readAll() {
         return healthCardRepository.readAll();
+    }
+
+    public void displayDetails(Object healthCard){
+        String cardType;
+        int id;
+
+        if (healthCard instanceof ECard) {
+            cardType = "Electronic Card";
+            id = ((ECard) healthCard).getElectronicID();
+        } else if (healthCard instanceof PaperCard) {
+            cardType = "Paper Card";
+            id = ((PaperCard) healthCard).getWrittenID();
+        } else {
+
+            return;
+        }
+
+        System.out.println("+---------------------------------+");
+        System.out.println("|           " + cardType + "            |");
+        System.out.println("+---------------------------------+");
+        System.out.println("| Expiration Date: " + ((HealthCard) healthCard).getExpirationDate() + addEmptySpace(((HealthCard) healthCard).getExpirationDate().length()) + "|");
+        System.out.println("| PIN: ****                        |");
+        System.out.println("| ID: " + id + addEmptySpace(String.valueOf(id).length()) + "|");
+        System.out.println("+---------------------------------+");
     }
 }
