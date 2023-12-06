@@ -64,6 +64,9 @@ public class Start {
                             System.out.println("Choose the entity you want to work with.");
                             Menu4();
                             break;
+                        case 5:
+                            patientController.iteratePatients();
+                            break;
                         default:
                             System.out.println("Invalid choice.");
                             break;
@@ -311,6 +314,7 @@ public class Start {
         System.out.println("2. Update.");
         System.out.println("3. Delete.");
         System.out.println("4. See all.");
+        System.out.println("5. Iterator(just for Patient).");
         System.out.println("What do you pick?");
     }
 
@@ -323,171 +327,4 @@ public class Start {
     }
 
 
-    public static void populate(){
-        Doctor doctor1 = new Doctor.Builder(1001, "Smith", "John")
-                .birthdate("1999-02-20")
-                .hospitalID(5001)
-                .contactPhone("555-9485-4948")
-                .specializationID(2002)
-                .cabinetID(9008)
-                .build();
-        doctorRepository.add(doctor1);
-
-        Doctor doctor2 = new Doctor.Builder(1002, "Johnson", "Sarah")
-                .birthdate("1998-05-15")
-                .hospitalID(5002)
-                .contactPhone("555-3948-5858")
-                .specializationID(2003)
-                .cabinetID(9009)
-                .build();
-        doctorRepository.add(doctor2);
-        Doctor doctor3 = new Doctor.Builder(1003, "Williams", "Michael")
-                .birthdate("1997-09-12")
-                .hospitalID(5003)
-                .contactPhone("555-9394-4848")
-                .specializationID(2004)
-                .cabinetID(9010)
-                .build();
-        doctorRepository.add(doctor3);
-
-        Doctor doctor4 = new Doctor.Builder(1004, "Brown", "Emily")
-                .birthdate("1996-11-23")
-                .hospitalID(5004)
-                .contactPhone("555-5858-3939")
-                .specializationID(2005)
-                .cabinetID(9011)
-                .build();
-        doctorRepository.add(doctor4);
-
-        Doctor doctor5 = new Doctor.Builder(1005, "Jones", "Daniel")
-                .birthdate("1995-03-07")
-                .hospitalID(5005)
-                .contactPhone("555-4848-9393")
-                .specializationID(2006)
-                .cabinetID(9012)
-                .build();
-        doctorRepository.add(doctor5);
-
-        Doctor doctor6 = new Doctor.Builder(1006, "Garcia", "Sophia")
-                .birthdate("1994-07-18")
-                .hospitalID(5006)
-                .contactPhone("555-3838-5858")
-                .specializationID(2007)
-                .cabinetID(9013)
-                .build();
-        doctorRepository.add(doctor6);
-
-        Doctor doctor7 = new Doctor.Builder(1007, "Martinez", "Emma")
-                .birthdate("1993-12-30")
-                .hospitalID(5007)
-                .contactPhone("555-9393-4848")
-                .specializationID(2008)
-                .cabinetID(9014)
-                .build();
-        doctorRepository.add(doctor7);
-
-        Doctor doctor8 = new Doctor.Builder(1008, "Davis", "James")
-                .birthdate("1992-08-02")
-                .hospitalID(5008)
-                .contactPhone("555-5858-3838")
-                .specializationID(2009)
-                .cabinetID(9015)
-                .build();
-        doctorRepository.add(doctor8);
-
-        Doctor doctor9 = new Doctor.Builder(1009, "Rodriguez", "Olivia")
-                .birthdate("1991-10-13")
-                .hospitalID(5009)
-                .contactPhone("555-4848-9393")
-                .specializationID(2010)
-                .cabinetID(9016)
-                .build();
-        doctorRepository.add(doctor9);
-
-        Doctor doctor10 = new Doctor.Builder(1010, "Hernandez", "Noah")
-                .birthdate("1990-04-25")
-                .hospitalID(5010)
-                .contactPhone("555-3838-5858")
-                .specializationID(2011)
-                .cabinetID(9017)
-                .build();
-        doctorRepository.add(doctor10);
-
-        Doctor doctor11 = new Doctor.Builder(1011, "Lopez", "Liam")
-                .birthdate("1989-06-06")
-                .hospitalID(5011)
-                .contactPhone("555-9393-4848")
-                .specializationID(2012)
-                .cabinetID(9018)
-                .build();
-        doctorRepository.add(doctor11);
-
-        patientRepository.add(new Patient(3001, "German", "Mikayla", "1999-09-11", "555-2342-7655", 4500));
-        patientRepository.add(new Patient(3002, "Johnson", "Daniel", "2000-04-05", "555-9087-1234", 4501));
-        patientRepository.add(new Patient(3003, "Williams", "Sophia", "1998-12-30", "555-2345-6789", 4502));
-        patientRepository.add(new Patient(3004, "Brown", "Noah", "1997-06-15", "555-9876-5432", 4503));
-        patientRepository.add(new Patient(3005, "Jones", "Emma", "1996-01-20", "555-1234-5678", 4504));
-        patientRepository.add(new Patient(3006, "Garcia", "Liam", "1995-07-25", "555-8765-4321", 4505));
-        patientRepository.add(new Patient(3007, "Martinez", "Olivia", "1994-03-10", "555-2345-6789", 4506));
-        patientRepository.add(new Patient(3008, "Davis", "Elijah", "1993-08-05", "555-9876-5432", 4507));
-        patientRepository.add(new Patient(3009, "Rodriguez", "Ava", "1992-02-15", "555-1234-5678", 4508));
-        patientRepository.add(new Patient(3010, "Hernandez", "William", "1991-09-01", "555-8765-4321", 4509));
-        patientRepository.add(new Patient(3011, "Lopez", "Isabella", "1990-04-10", "555-2345-6789", 4510));
-        specializationRepository.add(new Specialization(2002, "Cardiology"));
-        specializationRepository.add(new Specialization(2003, "Pediatrics"));
-        specializationRepository.add(new Specialization(2004, "General"));
-        specializationRepository.add(new Specialization(2005, "Fetal"));
-        specializationRepository.add(new Specialization(2006, "Neo Natal"));
-        specializationRepository.add(new Specialization(2007, "Dental"));
-        specializationRepository.add(new Specialization(2008, "Dermatology"));
-        specializationRepository.add(new Specialization(2009, "Plastics"));
-        specializationRepository.add(new Specialization(2010, "Neurology"));
-        specializationRepository.add(new Specialization(2011, "Urology"));
-        specializationRepository.add(new Specialization(2012, "Oncology"));
-        hospitalRepository.add(new Hospital(5001, "Seattle H", 300));
-        hospitalRepository.add(new Hospital(5002, "Paris H", 500));
-        hospitalRepository.add(new Hospital(5003, "Cluj H", 200));
-        hospitalRepository.add(new Hospital(5004, "Berlin H", 2800));
-        hospitalRepository.add(new Hospital(5005, "Budapest H", 1000));
-        hospitalRepository.add(new Hospital(5006, "Sofia H", 200));
-        hospitalRepository.add(new Hospital(5007, "Florence H", 300));
-        hospitalRepository.add(new Hospital(5008, "Vienna H", 600));
-        hospitalRepository.add(new Hospital(5009, "Hamburg H", 200));
-        hospitalRepository.add(new Hospital(5010, "Bonn H", 500));
-        hospitalRepository.add(new Hospital(5011, "Johannesburg H", 200));
-        cabinetRepository.add(new Cabinet(9008, "1."));
-        cabinetRepository.add(new Cabinet(9009, "2."));
-        cabinetRepository.add(new Cabinet(9010, "3."));
-        cabinetRepository.add(new Cabinet(9011, "4."));
-        cabinetRepository.add(new Cabinet(9012, "5."));
-        cabinetRepository.add(new Cabinet(9013, "6."));
-        cabinetRepository.add(new Cabinet(9014, "7."));
-        cabinetRepository.add(new Cabinet(9015, "8."));
-        cabinetRepository.add(new Cabinet(9016, "9."));
-        cabinetRepository.add(new Cabinet(9017, "10."));
-        cabinetRepository.add(new Cabinet(9018, "11."));
-        medicationRepository.add(new Medication(6005, "Paracetamol", "Oral", 500, "2025-09-11"));
-        medicationRepository.add(new Medication(6006, "Ibuprofen", "Oral", 400, "2025-10-15"));
-        medicationRepository.add(new Medication(6007, "Aspirin", "Oral", 300, "2025-11-20"));
-        medicationRepository.add(new Medication(6008, "Amoxicillin", "Oral", 250, "2025-12-25"));
-        medicationRepository.add(new Medication(6009, "Diazepam", "Oral", 350, "2026-01-30"));
-        medicationRepository.add(new Medication(6010, "Lisinopril", "Oral", 200, "2026-02-04"));
-        medicationRepository.add(new Medication(6011, "Simvastatin", "Oral", 150, "2026-03-10"));
-        medicationRepository.add(new Medication(6012, "Loratadine", "Oral", 100, "2026-04-15"));
-        medicationRepository.add(new Medication(6013, "Metformin", "Oral", 300, "2026-05-20"));
-        medicationRepository.add(new Medication(6014, "Atorvastatin", "Oral", 250, "2026-06-25"));
-        medicationRepository.add(new Medication(6015, "Prednisone", "Oral", 200, "2026-07-30"));
-        diseaseRepository.add(new Disease(7002, "Eczema"));
-        diseaseRepository.add(new Disease(7003, "Asthma"));
-        diseaseRepository.add(new Disease(7004, "Diabetes"));
-        diseaseRepository.add(new Disease(7005, "Arthritis"));
-        diseaseRepository.add(new Disease(7006, "Hypertension"));
-        diseaseRepository.add(new Disease(7007, "Depression"));
-        diseaseRepository.add(new Disease(7008, "Migraine"));
-        diseaseRepository.add(new Disease(7009, "Osteoporosis"));
-        diseaseRepository.add(new Disease(7010, "Bronchitis"));
-        diseaseRepository.add(new Disease(7011, "Gastritis"));
-        diseaseRepository.add(new Disease(7012, "Anemia"));
-
-    }
 }

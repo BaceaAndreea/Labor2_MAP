@@ -121,4 +121,11 @@ public class PatientRepository extends Databasesql implements RepositoryInterfac
         return null;
     }
 
+    // Metoda pentru crearea iteratorului
+    public PatientIterator createIterator() {
+        ArrayList<Patient> patients = readAll();
+        PatientIteratorImpl iterator = new PatientIteratorImpl(patients);
+        return iterator;
+    }
+
 }

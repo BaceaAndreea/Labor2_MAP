@@ -1,5 +1,8 @@
 package Domain;
+import Iterator.PatientIterator;
 import Observers.Observer;
+
+import java.util.ArrayList;
 
 public class Patient{
     private int patientID;
@@ -76,6 +79,11 @@ public class Patient{
                 ", contactPhone='" + contactPhone + '\'' +
                 ", cardID=" + cardID +
                 '}';
+    }
+    public PatientIterator createIterator() {
+        ArrayList<Patient> patients = new ArrayList<>();
+        patients.add(this);  // Adăugăm pacientul curent într-o listă (în cazul în care vrei să iterezi peste o listă de pacienți)
+        return new PatientIteratorImpl(patients);
     }
 
 }

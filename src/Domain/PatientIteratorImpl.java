@@ -9,7 +9,7 @@ public class PatientIteratorImpl implements PatientIterator<Patient> {
     private ArrayList<Patient> patients;
     private int index;
 
-    public void PatientIterator(ArrayList<Patient> patients) {
+    public PatientIteratorImpl(ArrayList<Patient> patients) {
         this.patients = patients;
         this.index = 0;
     }

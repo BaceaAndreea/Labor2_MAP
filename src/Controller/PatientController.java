@@ -42,4 +42,12 @@ public class PatientController implements ControllerInterface<Patient> {
         return patientRepository.readAll();
     }
 
+    public void iteratePatients() {
+        PatientIterator<Patient> iterator = patientRepository.createIterator();
+        while (iterator.hasNext()) {
+            Patient patient = iterator.next();
+            System.out.println(patient);
+        }
+    }
+
 }
