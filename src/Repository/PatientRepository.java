@@ -3,6 +3,9 @@ package Repository;
 import Domain.Patient;
 
 import Databasesql.*;
+import Domain.PatientIteratorImpl;
+import Iterator.PatientIterator;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -117,4 +120,5 @@ public class PatientRepository extends Databasesql implements RepositoryInterfac
         }
         return null;
     }
+
 }

@@ -1,6 +1,7 @@
 package Controller;
 
 import Domain.Patient;
+import Iterator.PatientIterator;
 import Repository.PatientRepository;
 import java.util.ArrayList;
 
@@ -40,4 +41,5 @@ public class PatientController implements ControllerInterface<Patient> {
     public ArrayList<Patient> readAll(){
         return patientRepository.readAll();
     }
+
 }
