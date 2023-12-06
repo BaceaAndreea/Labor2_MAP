@@ -80,10 +80,5 @@ public class Patient{
                 ", cardID=" + cardID +
                 '}';
     }
-    public PatientIterator createIterator() {
-        ArrayList<Patient> patients = new ArrayList<>();
-        patients.add(this);  // Adăugăm pacientul curent într-o listă (în cazul în care vrei să iterezi peste o listă de pacienți)
-        return new PatientIteratorImpl(patients);
-    }
 
 }

@@ -314,7 +314,7 @@ public class Start {
         System.out.println("2. Update.");
         System.out.println("3. Delete.");
         System.out.println("4. See all.");
-        System.out.println("5. Iterator(just for Patient).");
+        System.out.println("5. All patients.");
         System.out.println("What do you pick?");
     }
 
